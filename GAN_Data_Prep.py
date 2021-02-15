@@ -1,6 +1,6 @@
 class GAN_model:
 
-    def __init__(self, GAN_TYPE = "TVAE", DATA_Prep = True, Sample_data_prop = 100,GAN_data_path):
+    def __init__(self, GAN_TYPE = "TVAE", DATA_Prep = True, Sample_data_prop = 100,GAN_data_path=None):
         import pandas as pd
         self.DATA_Prep = DATA_Prep
         self.Sample_data_prop = Sample_data_prop
@@ -26,19 +26,11 @@ class GAN_model:
                     'To_station': To_station,
                     'From_station': From_station,
                     'Weight': float(1)}, index=[0])
-                self.df = self.df.append([a] * int(passengers) * 1 , ignore_index=True)
-
                 if passengers / (100/self.Sample_data_prop) < 1:
                     self.df = self.df.append([a] * 1, ignore_index=True)
-
                 else:
-                    if float(passengers / (100/self.Sample_data_prop)) % 1 > 0:
-                        self.df = self.df.append([a] * int(100/self.Sample_data_prop), ignore_index=True)
+                    self.df = self.df.append([a]*int(passengers) * int(100/self.Sample_data_prop), ignore_index=True)
         if not self.DATA_Prep:
             self.df = pd.read_csv(self.GAN_data_path)
 
-
-
-
-
-
+        return self.df
