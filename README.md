@@ -79,7 +79,7 @@ Librabry Recquirements
   * python3 or greater
   * populartimes (if using google API)
   
-### Step 1 : ### Step 1 : import GAN_Data_Prep as shown below
+### Step 1 : import GAN_Data_Prep as shown below
 ##### from GAN_Data_Prep import Data_prep
 
   
