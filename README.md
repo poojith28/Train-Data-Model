@@ -16,7 +16,7 @@ In Analytical model we use certain formulas to generate data for our models.
 
 Formulae to calculate contribution of each station. 
 
-![alt text]https://github.com/poojith28/Train-Data-Model/blob/main/pic.png
+![alt text](https://github.com/poojith28/Train-Data-Model/blob/main/pic.png)
 
 Note: In the above formulae k and l are 1 if it’s a down train and it will 26 and backwards count if it’s up trains.
 
