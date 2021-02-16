@@ -37,7 +37,6 @@ class Math_model:
 
 
     def Algorithm(self):
-
         for from_station_id in range(0,len(self.Station_data["S"])):
             for to_station_id in range(0,len(self.Station_data["S"])):
                 for hour in range(0,24):
