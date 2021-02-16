@@ -8,7 +8,7 @@
 
 •	We also have Google Places data which gives us the approximate distribution of passengers on station during the entire day. Note: as of now we don’t have distribution of all stations, to which we had made substitutions and assumptions.
 
-## Analytical Model
+## Math Model
 
 In Analytical model we use certain formulas to generate data for our models. 
 
@@ -30,4 +30,14 @@ V_s2_T1_s4 = s2_s4* google_data_of_s2_at_4
 
 s1_in = V_s1_T1_s2 + V_s1_T1_s3 + V_s1_T1_s4 + V_s1_T1_s5 +….. + V_s1_T1_s26
 s4_out = = V_s1_T1_s4 + V_s2_T1_s4 + V_s3_T1_s4 
+
+## Genrating Train Data Using the Math Model
+
+Librabry Recquirements
+  * Pandas 
+  * numpy 
+  * python3 or greater
+  
+
+  
 
