@@ -38,21 +38,21 @@ Librabry Recquirements
   * numpy 
   * python3 or greater
   
-#### Steps to execute code 
+### Steps to execute code 
 
-Step 1 : import math Model as shown below
-#### from Math_Model import Math_model
+### Step 1 : import math Model as shown below
+from Math_Model import Math_model
 
-Step 2 : Creating Instance Objects, and giving paths to read Data files, by default paths are referred to same document as the python files.
-#### Model = Math_model(Train_data_path = "TrainData4.csv",station_data_path = "Station_data.csv", Google_path_ = "Google_Station.csv") 
+### Step 2 : Creating Instance Objects, and giving paths to read Data files, by default paths are referred to same document as the python files.
+Model = Math_model(Train_data_path = "TrainData4.csv",station_data_path = "Station_data.csv", Google_path_ = "Google_Station.csv") 
 
 Note : If google Data is not avilable we have, we a function to get them, steps are as follows.
 
-Step A : Import the function 
-#### from Google_API import Get_GoogleData
+### Step A : Import the function 
+from Google_API import Get_GoogleData
 
-Step B : Calling the Function 
-#### Data = Get_GoogleData(Place_key = "", API_KEY = "", Normailze=True, day=0)
+### Step B : Calling the Function 
+Data = Get_GoogleData(Place_key = "", API_KEY = "", Normailze=True, day=0)
 
 Place_key = str; unique google maps id; retrievable via populartimes.get() or https://developers.google.com/maps/documentation/javascript/examples/places-placeid-finder
 
@@ -62,10 +62,10 @@ Normailze = True or False, by default it is True, it returns Normalized popular 
 
 day = 0 to 6 , by default it is 0(monday), 0 = monday, 1 = tuesday, 2 = wednesday, 3 = thursday, 4 = friday, 5= saturday, 6 = sunday.
 
-Step 3 : Preping the data for the Algorithm
-#### Model.google_data_prep()  This preps google data into recquired 
-#### Model.GET_STATION_TRIAIN_PER_HOUR() 
+###  Step 3 : Preping the data for the Algorithm
+Model.google_data_prep()  This preps google data into recquired 
+Model.GET_STATION_TRIAIN_PER_HOUR() 
 
-Step 4 : Calling Algorith Funtion 
-#### Data = Model.Algorithm()
+### Step 4 : Calling Algorith Funtion 
+Data = Model.Algorithm()
 
