@@ -52,12 +52,17 @@ Step A : Import the function
 #### from Google_API import Get_GoogleData
 
 Step B : Calling the Function 
-#### Get_GoogleData(Place_key = "", API_KEY = "", Normailze=False, day=0):
- 
+#### Data = Get_GoogleData(Place_key = "", API_KEY = "", Normailze=True, day=0)
 
-
+Place_key = str; unique google maps id; retrievable via populartimes.get() or https://developers.google.com/maps/documentation/javascript/examples/places-placeid-finder
+API_KEY = str; api key from google places web service; e.g. "your-api-key"  https://developers.google.com/places/web-service/get-api-key
+Normailze = True or False, by default it is True, it returns Normalized popular times data. 
+day = 0 to 6 , by default it is 0(monday), 0 = monday, 1 = tuesday, 2 = wednesday, 3 = thursday, 4 = friday, 5= saturday, 6 = sunday.
 
 Step 3 : Preping the data for the Algorithm
 #### Model.google_data_prep()  This preps google data into recquired 
 #### Model.GET_STATION_TRIAIN_PER_HOUR() 
+
+Step 4 : Calling Algorith Funtion 
+#### Data = Model.Algorithm()
 
