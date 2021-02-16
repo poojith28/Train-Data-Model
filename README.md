@@ -57,9 +57,6 @@ Step B : Calling the Function
 
 
 
-
-
-
 Step 3 : Preping the data for the Algorithm
 #### Model.google_data_prep()  This preps google data into recquired 
 #### Model.GET_STATION_TRIAIN_PER_HOUR() 
