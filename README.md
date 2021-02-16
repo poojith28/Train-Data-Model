@@ -41,7 +41,11 @@ Librabry Recquirements
 #### Steps to execute code 
 
 Step 1 : import math Model as shown below
-
-<p style='color:red'>from Math_Model import Math_model.</p>
   
+##### from Math_Model import Math_model
 
+Step 2 : Creating Instance Objects 
+
+###### a = Math_model(Train_data_path = "TrainData4.csv",
+######              station_data_path = "Station_data.csv",
+######            Google_path_ = "Google_Station.csv") 
