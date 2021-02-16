@@ -37,6 +37,7 @@ Librabry Recquirements
   * Pandas 
   * numpy 
   * python3 or greater
+  * populartimes (if using google API)
   
 ### Steps to execute code 
 
@@ -49,10 +50,10 @@ Librabry Recquirements
 Note : If google Data is not avilable we have, we a function to get them, steps are as follows.
 
 ### Step A : Import the function 
-#### from Google_API import Get_GoogleData
+##### from Google_API import Get_GoogleData
 
 ### Step B : Calling the Function 
-#### Data = Get_GoogleData(Place_key = "", API_KEY = "", Normailze=True, day=0)
+##### Data = Get_GoogleData(Place_key = "", API_KEY = "", Normailze=True, day=0)
 
 Place_key = str; unique google maps id; retrievable via populartimes.get() or https://developers.google.com/maps/documentation/javascript/examples/places-placeid-finder
 
@@ -63,9 +64,33 @@ Normailze = True or False, by default it is True, it returns Normalized popular 
 day = 0 to 6 , by default it is 0(monday), 0 = monday, 1 = tuesday, 2 = wednesday, 3 = thursday, 4 = friday, 5= saturday, 6 = sunday.
 
 ###  Step 3 : Preping the data for the Algorithm
-#### Model.google_data_prep()  This preps google data into recquired 
-#### Model.GET_STATION_TRIAIN_PER_HOUR() 
+##### Model.google_data_prep()  This preps google data into recquired 
+##### Model.GET_STATION_TRIAIN_PER_HOUR() 
 
 ### Step 4 : Calling Algorith Funtion 
-#### Data = Model.Algorithm()
+##### Data = Model.Algorithm()
+
+
+## Preping Train Data For the GAN Training.
+
+Librabry Recquirements
+  * Pandas 
+  * numpy 
+  * python3 or greater
+  * populartimes (if using google API)
+  
+### Step 1 : ### Step 1 : import GAN_Data_Prep as shown below
+##### from GAN_Data_Prep import Data_prep
+
+  
+### Step 2 : Creating Instance Objects with initialization. 
+##### model = Data_prep(DATA_Prep = True, Sample_data_prop = 100, GAN_data_path=None) 
+
+DATA_Prep = True or False, by default it is set to True, which means, we ask Math maodel to generate data for GAN Model. if it is set false, we need to give GAN_data_path.
+
+Sample_data_prop = 1 to 100, by default it is set to 100, which means we take 100% of data for train, Sample_data_prop allows us to take percentage of sample data to be taken for training.
+
+### Step 3 : Calling function to get Data
+
+##### data = model.model()
 
