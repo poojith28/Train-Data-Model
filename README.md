@@ -16,7 +16,7 @@ In Analytical model we use certain formulas to generate data for our models.
 
 Formulae to calculate contribution of each station. 
 
-s_i 〖_s〗_j=(s_(i_in )- ∑_(k=1)^(j-1)▒〖〖(s〗_i  _ s_k)〗)/(∑_(k=1)^(j-1)▒s_(k_in )   -∑_(l=1)^(j-2)▒∑_(k=l)^(j-1)▒〖〖(s〗_i  _ s_k)〗)* s_(j_out )
+![alt text](https://github.com/poojith28/Train-Data-Model/blob/[branch]/image.jpg?raw=true)
 
 Note: In the above formulae k and l are 1 if it’s a down train and it will 26 and backwards count if it’s up trains.
 
