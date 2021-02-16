@@ -94,3 +94,9 @@ Sample_data_prop = 1 to 100, by default it is set to 100, which means we take 10
 
 ##### data = model.model()
 
+## GAN Model
+
+After preping the data for the GAN model, Next step would be calling a gan model. 
+
+
+
