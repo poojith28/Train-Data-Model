@@ -41,21 +41,17 @@ Librabry Recquirements
 #### Steps to execute code 
 
 Step 1 : import math Model as shown below
-  
 #### from Math_Model import Math_model
 
 Step 2 : Creating Instance Objects, and giving paths to read Data files, by default paths are referred to same document as the python files.
-
 #### Model = Math_model(Train_data_path = "TrainData4.csv",station_data_path = "Station_data.csv", Google_path_ = "Google_Station.csv") 
 
 Note : If google Data is not avilable we have, we a function to get them, steps are as follows.
 
 Step A : Import the function 
-
 #### from Google_API import Get_GoogleData
 
 Step B : Calling the Function 
-
 #### Get_GoogleData(Place_key = "", API_KEY = "", Normailze=False, day=0):
  
 
@@ -65,7 +61,6 @@ Step B : Calling the Function
 
 
 Step 3 : Preping the data for the Algorithm
-
 #### Model.google_data_prep()  This preps google data into recquired 
 #### Model.GET_STATION_TRIAIN_PER_HOUR() 
 
