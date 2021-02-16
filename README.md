@@ -38,6 +38,10 @@ Librabry Recquirements
   * numpy 
   * python3 or greater
   
+#### Steps to execute code 
 
+Step 1 : import math Model as shown below
+
+<p style='color:red'>from Math_Model import Math_model.</p>
   
 
