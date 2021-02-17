@@ -123,8 +123,9 @@ Note: this will not return anyting, however progress of fitting will be displaye
 
 ### Step 3 : Generating Sample Data. 
 
-##### >>>>> num_samples = 100000000
+##### >>>>> num_samples = 10000000 # sample data size we recquire
 ##### >>>>> samples = Tgan.sample(num_samples)
+
 
 Note : if we want to change model parameters such as **epchos**, **learning_rate**, or **batch size** they can passed when creating a instance.
 
@@ -148,13 +149,28 @@ TGAN Parameters
 
 ## Training CTGAN MODEL
 
+Steps of Training CTGAN are almost similar to TGAN, they are as follows.
+
+from sdv.tabular import CTGAN
+
+##### >>>>> model = CTGAN()
+
+##### >>>>> model.fit(data)
+
+**for Creating Sample, it is, 
+
+##### >>>>>  num_samples = 1000000
+##### >>>>> samples = model.sample(num_samples)
 
 
 
 
-Referance 
+## Referance 
 
 Lei Xu, Kalyan Veeramachaneni. 2018. Synthesizing Tabular Data using Generative Adversarial Networks.
+
+Lei Xu, Maria Skoularidou, Alfredo Cuesta-Infante, Kalyan Veeramachaneni. Modeling Tabular data using Conditional GAN. NeurIPS, 2019.
+
 
 
 
