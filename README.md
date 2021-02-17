@@ -104,9 +104,10 @@ Due to compatability, we mainly look at three models,
 
 For TGAN, install **tgan** package, for CTGAN and TVAE, install **sdv** package
 
-### Training TGAN MODEL
+## Training TGAN MODEL
 
 for trining the TGAN model, our next step would be to import TGAN and create an instance of the model.
+### Step 1 : Creating an instance of the model
 
 This will create a TGAN instance with the default parameters:
 ##### >>>>> from tgan.model import TGANModel
@@ -114,9 +115,38 @@ This will create a TGAN instance with the default parameters:
 Note : continuous_columns is empty if we are not using any continuous data. if we are training model with hour, continuous_columns = ["hour"] 
 ##### >>>>> Tgan = TGANModel(continuous_columns)
 
+### Step 2 : Fit the model to the training data.
+
+##### >>>>> Tgan.fit(data)
+
+Note: this will not return anyting, however progress of fitting will be displayed, based on the system performance and data size, it take few hours to train the model.
+
+### Step 3 : Generating Sample Data. 
+
+##### >>>>> num_samples = 100000000
+##### >>>>> samples = Tgan.sample(num_samples)
+
+Note : if we want to change model parameters such as **epchos**, **learning_rate**, or **batch size** they can passed when creating a instance.
 
 
+TGAN Parameters 
 
+* max_epoch (int, default=100): Number of epochs to use during training.
+* steps_per_epoch (int, default=10000): Number of steps to run on each epoch.
+* save_checkpoints(bool, default=True): Whether or not to store checkpoints of the model after each training epoch.
+* restore_session(bool, default=True): Whether or not continue training from the last checkpoint.
+* batch_size (int, default=200): Size of the batch to feed the model at each step.
+* z_dim (int, default=100): Number of dimensions in the noise input for the generator.
+* noise (float, default=0.2): Upper bound to the gaussian noise added to categorical columns.
+* l2norm (float, default=0.00001): L2 reguralization coefficient when computing losses.
+* learning_rate (float, default=0.001): Learning rate for the optimizer.
+* num_gen_rnn (int, default=400): Number of units in rnn cell in generator.
+* num_gen_feature (int, default=100): Number of units in fully connected layer in generator.
+* num_dis_layers (int, default=2): Number of layers in discriminator.
+* num_dis_hidden (int, default=200): Number of units per layer in discriminator.
+* optimizer (str, default=AdamOptimizer): Name of the optimizer to use during fit, possible values are: [GradientDescentOptimizer, AdamOptimizer, AdadeltaOptimizer].
+
+## Training CTGAN MODEL
 
 
 
