@@ -189,6 +189,8 @@ unlike TGAN, CTGAN and TVAE allow to add constraints,
 * In these cases, we need to define a custom function that defines how to compute the value of the column.
 * Once we have defined this function, we can use the ColumnFormula constraint by passing it:
 
+## modeling constraints to the model.
+
 in our case, our data is compatible with UniqueCombinations Constraint,. In order to use this constraint we will need to import it from the sdv.constraints module and create an instance of it indicating:
 
 * the names of the affected columns
@@ -196,9 +198,7 @@ in our case, our data is compatible with UniqueCombinations Constraint,. In orde
 
 ##### >>>>> from sdv.constraints import UniqueCombinations
 
-##### >>>>> unique_Train_constraint = UniqueCombinations(
-#####                         columns=['Fromstation', 'Tostation','TrainNo'],
-#####                        handling_strategy='reject_sampling')
+##### >>>>> unique_Train_constraint = UniqueCombinations(columns=['Fromstation', 'Tostation','TrainNo'], handling_strategy='reject_sampling')
 ##### >>>>> constraints = [unique_Train_constraint]
 
 Now that we have defined the constraints needed to properly describe our dataset, we can pass them to the Tabular Model of our choice. we will see how to pass them in CTGAN and TVAE
@@ -207,12 +207,12 @@ Now that we have defined the constraints needed to properly describe our dataset
 
 ##### >>>>> model.fit(data)
 
-**for Creating Sample, it is,** 
+for Creating Sample, it is,
 
 ##### >>>>>  num_samples = 1000000
 ##### >>>>> samples = model.sample(num_samples)
 
-### or
+## or
 
 
 ##### >>>>>from sdv.tabular import TVAE
@@ -221,15 +221,13 @@ Now that we have defined the constraints needed to properly describe our dataset
 
 ##### >>>>> model.fit(data)
 
-**for Creating Sample, it is,** 
+for Creating Sample, it is,
 
 ##### >>>>>  num_samples = 1000000
 ##### >>>>> samples = model.sample(num_samples)
-
-
  
-for parameters of CTGAN, please look here https://sdv.dev/SDV/api_reference/tabular/api/sdv.tabular.ctgan.CTGAN.html#sdv.tabular.ctgan.CTGAN
-for parameters of TVAE, please look here https://sdv.dev/SDV/api_reference/tabular/api/sdv.tabular.ctgan.TVAE.html#sdv.tabular.ctgan.TVAE
+* For parameters of CTGAN, please look here https://sdv.dev/SDV/api_reference/tabular/api/sdv.tabular.ctgan.CTGAN.html#sdv.tabular.ctgan.CTGAN
+* For parameters of TVAE, please look here https://sdv.dev/SDV/api_reference/tabular/api/sdv.tabular.ctgan.TVAE.html#sdv.tabular.ctgan.TVAE
 
 
 ## Referance 
