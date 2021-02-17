@@ -42,18 +42,18 @@ Librabry Recquirements
 ### Steps to execute code 
 
 ### Step 1 : import math Model as shown below
-##### from Math_Model import Math_model
+##### >>>>> from Math_Model import Math_model
 
 ### Step 2 : Creating Instance Objects, and giving paths to read Data files, by default paths are referred to same document as the python files.
-##### Model = Math_model(Train_data_path = "TrainData4.csv",station_data_path = "Station_data.csv", Google_path_ = "Google_Station.csv") 
+##### >>>>> Model = Math_model(Train_data_path = "TrainData4.csv",station_data_path = "Station_data.csv", Google_path_ = "Google_Station.csv") 
 
 Note : If google Data is not avilable we have, we a function to get them, steps are as follows.
 
 ### Step A : Import the function 
-##### from Google_API import Get_GoogleData
+##### >>>>> from Google_API import Get_GoogleData
 
 ### Step B : Calling the Function 
-##### Data = Get_GoogleData(Place_key = "", API_KEY = "", Normailze=True, day=0)
+##### >>>>> Data = Get_GoogleData(Place_key = "", API_KEY = "", Normailze=True, day=0)
 
 Place_key = str; unique google maps id; retrievable via populartimes.get() or https://developers.google.com/maps/documentation/javascript/examples/places-placeid-finder
 
@@ -64,11 +64,11 @@ Normailze = True or False, by default it is True, it returns Normalized popular 
 day = 0 to 6 , by default it is 0(monday), 0 = monday, 1 = tuesday, 2 = wednesday, 3 = thursday, 4 = friday, 5= saturday, 6 = sunday.
 
 ###  Step 3 : Preping the data for the Algorithm
-##### Model.google_data_prep()  This preps google data into recquired 
-##### Model.GET_STATION_TRIAIN_PER_HOUR() 
+##### >>>>> Model.google_data_prep()  This preps google data into recquired 
+##### >>>>> Model.GET_STATION_TRIAIN_PER_HOUR() 
 
 ### Step 4 : Calling Algorith Funtion 
-##### Data = Model.Algorithm()
+##### >>>>> Data = Model.Algorithm()
 
 
 ## Preping Train Data For the GAN Training.
@@ -80,11 +80,11 @@ Librabry Recquirements
   * populartimes (if using google API)
   
 ### Step 1 : import GAN_Data_Prep as shown below
-##### from GAN_Data_Prep import Data_prep
+##### >>>>> from GAN_Data_Prep import Data_prep
 
   
 ### Step 2 : Creating Instance Objects with initialization. 
-##### model = Data_prep(DATA_Prep = True, Sample_data_prop = 100, GAN_data_path=None) 
+##### >>>>> model = Data_prep(DATA_Prep = True, Sample_data_prop = 100, GAN_data_path=None) 
 
 DATA_Prep = True or False, by default it is set to True, which means, we ask Math maodel to generate data for GAN Model. if it is set false, we need to give GAN_data_path.
 
@@ -92,11 +92,43 @@ Sample_data_prop = 1 to 100, by default it is set to 100, which means we take 10
 
 ### Step 3 : Calling function to get Data
 
-##### data = model.model()
+##### >>>>> data = model.model()
 
-## GAN Model
+## GAN Training.
 
-After preping the data for the GAN model, Next step would be calling a gan model. 
+Due to compatability, we mainly look at three models, 
+
+1) TGAN
+2) CTGAN - (Allows to add constraints)
+4) TVAE - (Allows to add constraints)
+
+For TGAN, install **tgan** package, for CTGAN and TVAE, install **sdv** package
+
+### Training TGAN MODEL
+
+for trining the TGAN model, our next step would be to import TGAN and create an instance of the model.
+
+This will create a TGAN instance with the default parameters:
+##### >>>>> from tgan.model import TGANModel
+##### >>>>> continuous_columns = [] 
+Note : continuous_columns is empty if we are not using any continuous data. if we are training model with hour, continuous_columns = ["hour"] 
+##### >>>>> Tgan = TGANModel(continuous_columns)
+
+
+
+
+
+
+
+
+
+Referance 
+
+Lei Xu, Kalyan Veeramachaneni. 2018. Synthesizing Tabular Data using Generative Adversarial Networks.
+
+
+
+
 
 
 
