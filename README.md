@@ -189,7 +189,7 @@ unlike TGAN, CTGAN and TVAE allow to add constraints,
 * In these cases, we need to define a custom function that defines how to compute the value of the column.
 * Once we have defined this function, we can use the ColumnFormula constraint by passing it:
 
-## modeling constraints to the model.
+## Modeling constraints to the model.
 
 in our case, our data is compatible with UniqueCombinations Constraint,. In order to use this constraint we will need to import it from the sdv.constraints module and create an instance of it indicating:
 
