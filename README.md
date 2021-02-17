@@ -123,7 +123,7 @@ Note: this will not return anyting, however progress of fitting will be displaye
 
 ### Step 3 : Generating Sample Data. 
 
-##### >>>>> num_samples = 10000000 # sample data size we recquire
+##### >>>>> num_samples = 1000000   (sample data size we want to Generate)
 ##### >>>>> samples = Tgan.sample(num_samples)
 
 
@@ -147,22 +147,89 @@ TGAN Parameters
 * num_dis_hidden (int, default=200): Number of units per layer in discriminator.
 * optimizer (str, default=AdamOptimizer): Name of the optimizer to use during fit, possible values are: [GradientDescentOptimizer, AdamOptimizer, AdadeltaOptimizer].
 
-## Training CTGAN MODEL
+## Training CTGAN MODEL or TVAE MODEL
 
-Steps of Training CTGAN are almost similar to TGAN, they are as follows.
+Steps of Training CTGAN andTVAE are almost similar to TGAN, they are as follows.
 
-from sdv.tabular import CTGAN
+##### >>>>>from sdv.tabular import CTGAN
 
 ##### >>>>> model = CTGAN()
 
 ##### >>>>> model.fit(data)
 
-**for Creating Sample, it is, 
+**for Creating Sample, it is,** 
+
+##### >>>>>  num_samples = 1000000
+##### >>>>> samples = model.sample(num_samples)
+
+### or
+
+
+##### >>>>>from sdv.tabular import TVAE
+
+##### >>>>> model = TVAE()
+
+##### >>>>> model.fit(data)
+
+**for Creating Sample, it is,** 
 
 ##### >>>>>  num_samples = 1000000
 ##### >>>>> samples = model.sample(num_samples)
 
 
+unlike TGAN, CTGAN and TVAE allow to add constraints,
+
+## Types of Constraints
+### UniqueCombinations Constraint
+* This constraint guarantees that the values of a set of columns can only be combined exactly as seen in the original data, and new combinations are not accepted
+### GreaterThan Constraint
+* This constraint guarantees that one column is always greater than the other one.
+### CustomFormula Constraint
+* In some cases, one column will need to be computed based on the other columns using a custom formula. 
+* In these cases, we need to define a custom function that defines how to compute the value of the column.
+* Once we have defined this function, we can use the ColumnFormula constraint by passing it:
+
+in our case, our data is compatible with UniqueCombinations Constraint,. In order to use this constraint we will need to import it from the sdv.constraints module and create an instance of it indicating:
+
+* the names of the affected columns
+* which strategy we want to use: transform or reject_sampling.
+
+##### >>>>> from sdv.constraints import UniqueCombinations
+
+##### >>>>> unique_Train_constraint = UniqueCombinations(
+#####                         columns=['Fromstation', 'Tostation','TrainNo'],
+#####                        handling_strategy='reject_sampling')
+##### >>>>> constraints = [unique_Train_constraint]
+
+Now that we have defined the constraints needed to properly describe our dataset, we can pass them to the Tabular Model of our choice. we will see how to pass them in CTGAN and TVAE
+
+##### >>>>> model = CTGAN(constraints= constraints)
+
+##### >>>>> model.fit(data)
+
+**for Creating Sample, it is,** 
+
+##### >>>>>  num_samples = 1000000
+##### >>>>> samples = model.sample(num_samples)
+
+### or
+
+
+##### >>>>>from sdv.tabular import TVAE
+
+##### >>>>> model = TVAE(constraints= constraints)
+
+##### >>>>> model.fit(data)
+
+**for Creating Sample, it is,** 
+
+##### >>>>>  num_samples = 1000000
+##### >>>>> samples = model.sample(num_samples)
+
+
+ 
+for parameters of CTGAN, please look here https://sdv.dev/SDV/api_reference/tabular/api/sdv.tabular.ctgan.CTGAN.html#sdv.tabular.ctgan.CTGAN
+for parameters of TVAE, please look here https://sdv.dev/SDV/api_reference/tabular/api/sdv.tabular.ctgan.TVAE.html#sdv.tabular.ctgan.TVAE
 
 
 ## Referance 
