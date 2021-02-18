@@ -24,12 +24,11 @@ class Data_prep:
                 a = pd.DataFrame({
                     'Train_no': Train_no,
                     'To_station': To_station,
-                    'From_station': From_station,
-                    'Weight': float(1)}, index=[0])
+                    'From_station': From_station}, index=[0])
                 if passengers / (100/self.Sample_data_prop) < 1:
                     self.df = self.df.append([a] * 1, ignore_index=True)
                 else:
-                    self.df = self.df.append([a]*int(passengers) * int(100/self.Sample_data_prop), ignore_index=True)
+                    self.df = self.df.append([a]*int(passengers / (100/self.Sample_data_prop)), ignore_index=True)
 
         if not self.DATA_Prep:
             self.df = pd.read_csv(self.GAN_data_path)
