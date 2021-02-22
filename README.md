@@ -64,7 +64,7 @@ Normailze = True or False, by default it is True, it returns Normalized popular 
 day = 0 to 6 , by default it is 0(monday), 0 = monday, 1 = tuesday, 2 = wednesday, 3 = thursday, 4 = friday, 5= saturday, 6 = sunday.
 
 ###  Step 3 : Preping the data for the Algorithm
-##### >>>>> Model.google_data_prep()  This preps google data into recquired 
+##### >>>>> Model.google_data_prep()
 ##### >>>>> Model.GET_STATION_TRIAIN_PER_HOUR() 
 
 ### Step 4 : Calling Algorith Funtion 
