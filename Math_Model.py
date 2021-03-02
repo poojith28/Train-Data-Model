@@ -25,7 +25,7 @@ class Math_model:
             train_per_hour = {}
             for hour in range(0, 24):
                 train_per_hour[hour] = self.Train_data[self.Train_data['s' + str(station+1)] == (hour)]
-                self.stations_trains_per_hour.append(train_per_hour)
+            self.stations_trains_per_hour.append(train_per_hour)
 
         for si in range(0,len(self.Station_data["S"])):
             for sj in  range(0,len(self.Station_data["S"])):
