@@ -4,12 +4,12 @@ from sdv.constraints import UniqueCombinations
 from sdv.tabular import TVAE
 
 
-model = Data_prep(DATA_Prep = True, Sample_data_prop = 100, GAN_data_path=None)
+model = Data_prep(DATA_Prep = False, Sample_data_prop = 100, GAN_data_path="DATA.CSV")
 # Data prep for Gan model
 data = model.model()
 
 # forming the constraints
-unique_Train_constraint = UniqueCombinations(columns=['Fromstation', 'Tostation','TrainNo'], handling_strategy='reject_sampling')
+unique_Train_constraint = UniqueCombinations(columns=['From_station', 'To_station','Train_no'], handling_strategy='reject_sampling')
 constraints = [unique_Train_constraint]
 
 # defining a model
